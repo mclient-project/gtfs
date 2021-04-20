@@ -1,0 +1,15 @@
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX bd: <http://www.bigdata.com/rdf#>
+
+SELECT ?station ?p ?o 
+WHERE 
+{
+	?station wdt:P31 ?class ;
+		?p ?o ; 
+		wdt:P17 wd:Q183 .
+	?class wdt:P279* wd:Q548662 .
+	SERVICE wikibase:label { bd:serviceParam wikibase:language "de". }
+
+}
